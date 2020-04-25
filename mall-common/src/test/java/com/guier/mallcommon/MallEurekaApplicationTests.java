@@ -1,4 +1,4 @@
-package com.guier.malleureka;
+package com.guier.mallcommon;
 
 import org.junit.Test;
 import org.springframework.boot.test.context.SpringBootTest;

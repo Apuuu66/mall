@@ -1,4 +1,4 @@
-package com.guier.malleureka;
+package com.guier.mallcommon;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
