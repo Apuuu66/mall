@@ -2,7 +2,7 @@ spring:
   application:
     name: eureka-server
 server:
-  port: 8761
+  port: 7001
 eureka:
   instance:
     hostname: localhost
@@ -11,7 +11,7 @@ eureka:
     fetch-registry: false       #是否从eureka中获取信息
     service-url:
       defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
-  server:
-    enable-self-preservation: false  #关闭自我保护
-    eviction-interval-timer-in-ms: 4000  #清理间隔
+#  server:
+#    enable-self-preservation: false  #关闭自我保护
+#    eviction-interval-timer-in-ms: 4000  #清理间隔
 #http://www.itmuch.com/spring-cloud-sum-eureka/
