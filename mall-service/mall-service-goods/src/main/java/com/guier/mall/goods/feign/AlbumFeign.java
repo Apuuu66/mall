@@ -1,7 +1,12 @@
-package com.changgou.content.feign;
+package com.guier.mall.goods.feign;
+
+import com.github.pagehelper.PageInfo;
 import com.guier.mall.common.entity.Result;
+import com.guier.mall.goods.pojo.Album;
 import org.springframework.cloud.openfeign.FeignClient;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @FeignClient(name="goods-service")
 @RequestMapping("/album")
@@ -15,7 +20,7 @@ public interface AlbumFeign {
      * @return
      */
     @PostMapping(value = "/search/{page}/{size}" )
-    Result<PageInfo> findPage(@RequestBody(required = false) Album album, @PathVariable  int page, @PathVariable  int size);
+    Result<PageInfo> findPage(@RequestBody(required = false) Album album, @PathVariable int page, @PathVariable int size);
 
     /***
      * Album分页搜索实现
@@ -24,7 +29,7 @@ public interface AlbumFeign {
      * @return
      */
     @GetMapping(value = "/search/{page}/{size}" )
-    Result<PageInfo> findPage(@PathVariable  int page, @PathVariable  int size);
+    Result<PageInfo> findPage(@PathVariable int page, @PathVariable int size);
 
     /***
      * 多条件搜索品牌数据
@@ -49,7 +54,7 @@ public interface AlbumFeign {
      * @return
      */
     @PutMapping(value="/{id}")
-    Result update(@RequestBody Album album,@PathVariable Long id);
+    Result update(@RequestBody Album album, @PathVariable Long id);
 
     /***
      * 新增Album数据

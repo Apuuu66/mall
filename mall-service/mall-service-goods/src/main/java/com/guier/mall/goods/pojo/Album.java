@@ -1,10 +1,10 @@
 package com.guier.mall.goods.pojo;
+
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+
 import javax.persistence.*;
 import java.io.Serializable;
-import java.lang.Long;
-import java.lang.String;
 
 @ApiModel(description = "Album",value = "Album")
 @Table(name="tb_album")

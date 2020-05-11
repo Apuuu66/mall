@@ -1,7 +1,12 @@
-package com.changgou.content.feign;
+package com.guier.mall.goods.feign;
+
+import com.github.pagehelper.PageInfo;
 import com.guier.mall.common.entity.Result;
+import com.guier.mall.goods.pojo.Pref;
 import org.springframework.cloud.openfeign.FeignClient;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @FeignClient(name="goods-service")
 @RequestMapping("/pref")
@@ -15,7 +20,7 @@ public interface PrefFeign {
      * @return
      */
     @PostMapping(value = "/search/{page}/{size}" )
-    Result<PageInfo> findPage(@RequestBody(required = false) Pref pref, @PathVariable  int page, @PathVariable  int size);
+    Result<PageInfo> findPage(@RequestBody(required = false) Pref pref, @PathVariable int page, @PathVariable int size);
 
     /***
      * Pref分页搜索实现
@@ -24,7 +29,7 @@ public interface PrefFeign {
      * @return
      */
     @GetMapping(value = "/search/{page}/{size}" )
-    Result<PageInfo> findPage(@PathVariable  int page, @PathVariable  int size);
+    Result<PageInfo> findPage(@PathVariable int page, @PathVariable int size);
 
     /***
      * 多条件搜索品牌数据
@@ -49,7 +54,7 @@ public interface PrefFeign {
      * @return
      */
     @PutMapping(value="/{id}")
-    Result update(@RequestBody Pref pref,@PathVariable Integer id);
+    Result update(@RequestBody Pref pref, @PathVariable Integer id);
 
     /***
      * 新增Pref数据

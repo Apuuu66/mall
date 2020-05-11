@@ -1,6 +1,8 @@
 package com.guier.mall.goods.service;
-import com.guier.mall.goods.pojo.Pref;
+
 import com.github.pagehelper.PageInfo;
+import com.guier.mall.goods.pojo.Pref;
+
 import java.util.List;
 
 public interface PrefService {

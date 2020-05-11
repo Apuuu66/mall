@@ -1,6 +1,8 @@
 package com.guier.mall.goods.service;
-import com.guier.mall.goods.pojo.Spu;
+
 import com.github.pagehelper.PageInfo;
+import com.guier.mall.goods.pojo.Spu;
+
 import java.util.List;
 
 public interface SpuService {

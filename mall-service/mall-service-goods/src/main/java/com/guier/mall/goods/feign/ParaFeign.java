@@ -1,7 +1,12 @@
-package com.changgou.content.feign;
+package com.guier.mall.goods.feign;
+
+import com.github.pagehelper.PageInfo;
 import com.guier.mall.common.entity.Result;
+import com.guier.mall.goods.pojo.Para;
 import org.springframework.cloud.openfeign.FeignClient;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @FeignClient(name="goods-service")
 @RequestMapping("/para")
@@ -15,7 +20,7 @@ public interface ParaFeign {
      * @return
      */
     @PostMapping(value = "/search/{page}/{size}" )
-    Result<PageInfo> findPage(@RequestBody(required = false) Para para, @PathVariable  int page, @PathVariable  int size);
+    Result<PageInfo> findPage(@RequestBody(required = false) Para para, @PathVariable int page, @PathVariable int size);
 
     /***
      * Para分页搜索实现
@@ -24,7 +29,7 @@ public interface ParaFeign {
      * @return
      */
     @GetMapping(value = "/search/{page}/{size}" )
-    Result<PageInfo> findPage(@PathVariable  int page, @PathVariable  int size);
+    Result<PageInfo> findPage(@PathVariable int page, @PathVariable int size);
 
     /***
      * 多条件搜索品牌数据
@@ -49,7 +54,7 @@ public interface ParaFeign {
      * @return
      */
     @PutMapping(value="/{id}")
-    Result update(@RequestBody Para para,@PathVariable Integer id);
+    Result update(@RequestBody Para para, @PathVariable Integer id);
 
     /***
      * 新增Para数据

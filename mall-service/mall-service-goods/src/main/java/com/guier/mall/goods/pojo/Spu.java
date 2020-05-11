@@ -1,10 +1,12 @@
 package com.guier.mall.goods.pojo;
+
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import javax.persistence.*;
+
+import javax.persistence.Column;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.io.Serializable;
-import java.lang.String;
-import java.lang.Integer;
 
 @ApiModel(description = "Spu",value = "Spu")
 @Table(name="tb_spu")

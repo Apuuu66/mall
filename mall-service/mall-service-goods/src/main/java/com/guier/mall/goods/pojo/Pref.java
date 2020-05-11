@@ -1,11 +1,11 @@
 package com.guier.mall.goods.pojo;
+
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
-import java.lang.String;
-import java.lang.Integer;
 
 @ApiModel(description = "Pref",value = "Pref")
 @Table(name="tb_pref")

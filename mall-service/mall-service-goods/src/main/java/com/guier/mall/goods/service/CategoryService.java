@@ -1,6 +1,8 @@
 package com.guier.mall.goods.service;
-import com.guier.mall.goods.pojo.Category;
+
 import com.github.pagehelper.PageInfo;
+import com.guier.mall.goods.pojo.Category;
+
 import java.util.List;
 
 public interface CategoryService {

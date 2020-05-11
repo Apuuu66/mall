@@ -1,13 +1,15 @@
 package com.guier.mall.goods.service.impl;
+
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.guier.mall.goods.dao.SpecMapper;
 import com.guier.mall.goods.pojo.Spec;
 import com.guier.mall.goods.service.SpecService;
-import com.github.pagehelper.PageHelper;
-import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 import tk.mybatis.mapper.entity.Example;
+
 import java.util.List;
 
 @Service
