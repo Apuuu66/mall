@@ -3,22 +3,22 @@ import com.guier.mall.common.entity.Result;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-@FeignClient(name="${serviceName}")
-@RequestMapping("/${table}")
-public interface ${Table}Feign {
+@FeignClient(name="goods-service")
+@RequestMapping("/album")
+public interface AlbumFeign {
 
     /***
-     * ${Table}分页条件搜索实现
-     * @param ${table}
+     * Album分页条件搜索实现
+     * @param album
      * @param page
      * @param size
      * @return
      */
     @PostMapping(value = "/search/{page}/{size}" )
-    Result<PageInfo> findPage(@RequestBody(required = false) ${Table} ${table}, @PathVariable  int page, @PathVariable  int size);
+    Result<PageInfo> findPage(@RequestBody(required = false) Album album, @PathVariable  int page, @PathVariable  int size);
 
     /***
-     * ${Table}分页搜索实现
+     * Album分页搜索实现
      * @param page:当前页
      * @param size:每页显示多少条
      * @return
@@ -28,11 +28,11 @@ public interface ${Table}Feign {
 
     /***
      * 多条件搜索品牌数据
-     * @param ${table}
+     * @param album
      * @return
      */
     @PostMapping(value = "/search" )
-    Result<List<${Table}>> findList(@RequestBody(required = false) ${Table} ${table});
+    Result<List<Album>> findList(@RequestBody(required = false) Album album);
 
     /***
      * 根据ID删除品牌数据
@@ -40,37 +40,37 @@ public interface ${Table}Feign {
      * @return
      */
     @DeleteMapping(value = "/{id}" )
-    Result delete(@PathVariable ${keyType} id);
+    Result delete(@PathVariable Long id);
 
     /***
-     * 修改${Table}数据
-     * @param ${table}
+     * 修改Album数据
+     * @param album
      * @param id
      * @return
      */
     @PutMapping(value="/{id}")
-    Result update(@RequestBody ${Table} ${table},@PathVariable ${keyType} id);
+    Result update(@RequestBody Album album,@PathVariable Long id);
 
     /***
-     * 新增${Table}数据
-     * @param ${table}
+     * 新增Album数据
+     * @param album
      * @return
      */
     @PostMapping
-    Result add(@RequestBody ${Table} ${table});
+    Result add(@RequestBody Album album);
 
     /***
-     * 根据ID查询${Table}数据
+     * 根据ID查询Album数据
      * @param id
      * @return
      */
     @GetMapping("/{id}")
-    Result<${Table}> findById(@PathVariable ${keyType} id);
+    Result<Album> findById(@PathVariable Long id);
 
     /***
-     * 查询${Table}全部数据
+     * 查询Album全部数据
      * @return
      */
     @GetMapping
-    Result<List<${Table}>> findAll();
+    Result<List<Album>> findAll();
 }

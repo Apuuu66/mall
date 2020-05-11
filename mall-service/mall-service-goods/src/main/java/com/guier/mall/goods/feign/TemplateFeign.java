@@ -3,22 +3,22 @@ import com.guier.mall.common.entity.Result;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-@FeignClient(name="${serviceName}")
-@RequestMapping("/${table}")
-public interface ${Table}Feign {
+@FeignClient(name="goods-service")
+@RequestMapping("/template")
+public interface TemplateFeign {
 
     /***
-     * ${Table}分页条件搜索实现
-     * @param ${table}
+     * Template分页条件搜索实现
+     * @param template
      * @param page
      * @param size
      * @return
      */
     @PostMapping(value = "/search/{page}/{size}" )
-    Result<PageInfo> findPage(@RequestBody(required = false) ${Table} ${table}, @PathVariable  int page, @PathVariable  int size);
+    Result<PageInfo> findPage(@RequestBody(required = false) Template template, @PathVariable  int page, @PathVariable  int size);
 
     /***
-     * ${Table}分页搜索实现
+     * Template分页搜索实现
      * @param page:当前页
      * @param size:每页显示多少条
      * @return
@@ -28,11 +28,11 @@ public interface ${Table}Feign {
 
     /***
      * 多条件搜索品牌数据
-     * @param ${table}
+     * @param template
      * @return
      */
     @PostMapping(value = "/search" )
-    Result<List<${Table}>> findList(@RequestBody(required = false) ${Table} ${table});
+    Result<List<Template>> findList(@RequestBody(required = false) Template template);
 
     /***
      * 根据ID删除品牌数据
@@ -40,37 +40,37 @@ public interface ${Table}Feign {
      * @return
      */
     @DeleteMapping(value = "/{id}" )
-    Result delete(@PathVariable ${keyType} id);
+    Result delete(@PathVariable Integer id);
 
     /***
-     * 修改${Table}数据
-     * @param ${table}
+     * 修改Template数据
+     * @param template
      * @param id
      * @return
      */
     @PutMapping(value="/{id}")
-    Result update(@RequestBody ${Table} ${table},@PathVariable ${keyType} id);
+    Result update(@RequestBody Template template,@PathVariable Integer id);
 
     /***
-     * 新增${Table}数据
-     * @param ${table}
+     * 新增Template数据
+     * @param template
      * @return
      */
     @PostMapping
-    Result add(@RequestBody ${Table} ${table});
+    Result add(@RequestBody Template template);
 
     /***
-     * 根据ID查询${Table}数据
+     * 根据ID查询Template数据
      * @param id
      * @return
      */
     @GetMapping("/{id}")
-    Result<${Table}> findById(@PathVariable ${keyType} id);
+    Result<Template> findById(@PathVariable Integer id);
 
     /***
-     * 查询${Table}全部数据
+     * 查询Template全部数据
      * @return
      */
     @GetMapping
-    Result<List<${Table}>> findAll();
+    Result<List<Template>> findAll();
 }

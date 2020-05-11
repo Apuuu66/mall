@@ -3,22 +3,22 @@ import com.guier.mall.common.entity.Result;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-@FeignClient(name="${serviceName}")
-@RequestMapping("/${table}")
-public interface ${Table}Feign {
+@FeignClient(name="goods-service")
+@RequestMapping("/sku")
+public interface SkuFeign {
 
     /***
-     * ${Table}分页条件搜索实现
-     * @param ${table}
+     * Sku分页条件搜索实现
+     * @param sku
      * @param page
      * @param size
      * @return
      */
     @PostMapping(value = "/search/{page}/{size}" )
-    Result<PageInfo> findPage(@RequestBody(required = false) ${Table} ${table}, @PathVariable  int page, @PathVariable  int size);
+    Result<PageInfo> findPage(@RequestBody(required = false) Sku sku, @PathVariable  int page, @PathVariable  int size);
 
     /***
-     * ${Table}分页搜索实现
+     * Sku分页搜索实现
      * @param page:当前页
      * @param size:每页显示多少条
      * @return
@@ -28,11 +28,11 @@ public interface ${Table}Feign {
 
     /***
      * 多条件搜索品牌数据
-     * @param ${table}
+     * @param sku
      * @return
      */
     @PostMapping(value = "/search" )
-    Result<List<${Table}>> findList(@RequestBody(required = false) ${Table} ${table});
+    Result<List<Sku>> findList(@RequestBody(required = false) Sku sku);
 
     /***
      * 根据ID删除品牌数据
@@ -40,37 +40,37 @@ public interface ${Table}Feign {
      * @return
      */
     @DeleteMapping(value = "/{id}" )
-    Result delete(@PathVariable ${keyType} id);
+    Result delete(@PathVariable String id);
 
     /***
-     * 修改${Table}数据
-     * @param ${table}
+     * 修改Sku数据
+     * @param sku
      * @param id
      * @return
      */
     @PutMapping(value="/{id}")
-    Result update(@RequestBody ${Table} ${table},@PathVariable ${keyType} id);
+    Result update(@RequestBody Sku sku,@PathVariable String id);
 
     /***
-     * 新增${Table}数据
-     * @param ${table}
+     * 新增Sku数据
+     * @param sku
      * @return
      */
     @PostMapping
-    Result add(@RequestBody ${Table} ${table});
+    Result add(@RequestBody Sku sku);
 
     /***
-     * 根据ID查询${Table}数据
+     * 根据ID查询Sku数据
      * @param id
      * @return
      */
     @GetMapping("/{id}")
-    Result<${Table}> findById(@PathVariable ${keyType} id);
+    Result<Sku> findById(@PathVariable String id);
 
     /***
-     * 查询${Table}全部数据
+     * 查询Sku全部数据
      * @return
      */
     @GetMapping
-    Result<List<${Table}>> findAll();
+    Result<List<Sku>> findAll();
 }

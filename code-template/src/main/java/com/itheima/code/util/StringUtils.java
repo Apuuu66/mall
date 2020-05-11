@@ -8,9 +8,9 @@ public class StringUtils {
      * @return
      */
     public static String firstUpper(String str) {
-        if (str == null || str.trim().length() == 0) {
-            return str;
-        }
+        // if (str == null || str.trim().length() == 0) {
+        //     return str;
+        // }
         return str.substring(0, 1).toUpperCase() + str.substring(1);
     }
 
@@ -21,9 +21,9 @@ public class StringUtils {
      * @return
      */
     public static String firstLower(String str) {
-        if (str == null || str.trim().length() == 0) {
-            return str;
-        }
+        // if (str == null || str.trim().length() == 0) {
+        //     return str;
+        // }
         return str.substring(0, 1).toLowerCase() + str.substring(1);
     }
 

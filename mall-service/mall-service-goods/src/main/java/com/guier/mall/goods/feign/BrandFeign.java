@@ -3,22 +3,22 @@ import com.guier.mall.common.entity.Result;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-@FeignClient(name="${serviceName}")
-@RequestMapping("/${table}")
-public interface ${Table}Feign {
+@FeignClient(name="goods-service")
+@RequestMapping("/brand")
+public interface BrandFeign {
 
     /***
-     * ${Table}分页条件搜索实现
-     * @param ${table}
+     * Brand分页条件搜索实现
+     * @param brand
      * @param page
      * @param size
      * @return
      */
     @PostMapping(value = "/search/{page}/{size}" )
-    Result<PageInfo> findPage(@RequestBody(required = false) ${Table} ${table}, @PathVariable  int page, @PathVariable  int size);
+    Result<PageInfo> findPage(@RequestBody(required = false) Brand brand, @PathVariable  int page, @PathVariable  int size);
 
     /***
-     * ${Table}分页搜索实现
+     * Brand分页搜索实现
      * @param page:当前页
      * @param size:每页显示多少条
      * @return
@@ -28,11 +28,11 @@ public interface ${Table}Feign {
 
     /***
      * 多条件搜索品牌数据
-     * @param ${table}
+     * @param brand
      * @return
      */
     @PostMapping(value = "/search" )
-    Result<List<${Table}>> findList(@RequestBody(required = false) ${Table} ${table});
+    Result<List<Brand>> findList(@RequestBody(required = false) Brand brand);
 
     /***
      * 根据ID删除品牌数据
@@ -40,37 +40,37 @@ public interface ${Table}Feign {
      * @return
      */
     @DeleteMapping(value = "/{id}" )
-    Result delete(@PathVariable ${keyType} id);
+    Result delete(@PathVariable Integer id);
 
     /***
-     * 修改${Table}数据
-     * @param ${table}
+     * 修改Brand数据
+     * @param brand
      * @param id
      * @return
      */
     @PutMapping(value="/{id}")
-    Result update(@RequestBody ${Table} ${table},@PathVariable ${keyType} id);
+    Result update(@RequestBody Brand brand,@PathVariable Integer id);
 
     /***
-     * 新增${Table}数据
-     * @param ${table}
+     * 新增Brand数据
+     * @param brand
      * @return
      */
     @PostMapping
-    Result add(@RequestBody ${Table} ${table});
+    Result add(@RequestBody Brand brand);
 
     /***
-     * 根据ID查询${Table}数据
+     * 根据ID查询Brand数据
      * @param id
      * @return
      */
     @GetMapping("/{id}")
-    Result<${Table}> findById(@PathVariable ${keyType} id);
+    Result<Brand> findById(@PathVariable Integer id);
 
     /***
-     * 查询${Table}全部数据
+     * 查询Brand全部数据
      * @return
      */
     @GetMapping
-    Result<List<${Table}>> findAll();
+    Result<List<Brand>> findAll();
 }
